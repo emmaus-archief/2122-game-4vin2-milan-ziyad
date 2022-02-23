@@ -58,12 +58,12 @@ var tekenAlles = function () {
 
   // speler
   fill("white");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
+  rect(spelerX - 18, spelerY - 8, 36, 15);
   fill("black");
-  ellipse(spelerX, spelerY, 10, 10);
+  ellipse(spelerX, spelerY, 20, 20);
 
   // punten en health
-
+fill(255,215,0);
 };
 
 /**
