@@ -27,10 +27,10 @@ var spelerY = 600; // y-positie van speler
 var beweegAlles = function () {
   // speler
 if (keyIsDown(65)){
-  spelerX=spelerX-3;
+  spelerX=spelerX-5;
 }
 if (keyIsDown(68)){
-  spelerX = spelerX + 3;
+  spelerX = spelerX + 5;
 }
 if (keyIsDown(87)){
   spelerY = spelerY - 3;
@@ -62,6 +62,9 @@ var tekenAlles = function () {
 background('blue');
   // vijand
 
+  fill(247,104,6);
+rect(370,270,50,450);
+rect(800,270,50,450);
   // kogel
 
   // speler
@@ -107,9 +110,10 @@ function setup() {
  */
 function draw() {
   if (spelStatus === SPELEN) {
+    tekenAlles();
     beweegAlles();
     verwerkBotsing();
-    tekenAlles();
+    
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
