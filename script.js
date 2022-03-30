@@ -60,13 +60,14 @@ var verwerkBotsing = function () {
 var tekenAlles = function () {
   // achtergrond
 background('blue');
-  // vijand
-
-  fill(247,104,6);
+fill(247,104,6);
 rect(370,270,50,450);
 rect(800,270,50,450);
-  // kogel
+  // vijand
 
+  
+  // kogel
+  
   // speler
   fill("white");
   rect(spelerX - 18, spelerY - 8, 36, 15);
