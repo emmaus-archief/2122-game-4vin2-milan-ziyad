@@ -64,8 +64,8 @@ var tekenAlles = function () {
   // achtergrond
 background('blue');
 fill(247,104,6);
-rect(370,270,50,450);
-rect(800,270,50,450);
+rect(370,0,50,720);
+rect(800,0,50,720);
   // vijand
 
   
