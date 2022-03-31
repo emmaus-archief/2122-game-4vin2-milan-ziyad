@@ -35,6 +35,9 @@ if (keyIsDown(68)){
 if (keyIsDown(87)){
   spelerY = spelerY - 3;
 }
+ if (keyIsDown(83)){
+   spelerY = spelerY +1;
+ }
   // vijand
 
   // kogel

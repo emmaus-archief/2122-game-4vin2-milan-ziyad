@@ -17,7 +17,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] 1. maak index.html, style.css en script.js met canvas
 - [x] 2. teken speler
         - Zet je code in de functie tekenAlles()
-- [ ] 3. beweeg speler
+- [x] 3. beweeg speler
         - Zet je code in de functie beweegAlles()
         - Kies de afmeting van speler
         - Gebruik variabalen spelerX en spelerY als middelpunt van de speler
