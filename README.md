@@ -21,8 +21,8 @@ Basis: uitleg, spelen, afgaan en punten
         - Zet je code in de functie beweegAlles()
         - Kies de afmeting van speler
         - Gebruik variabalen spelerX en spelerY als middelpunt van de speler
-- [ ] 4. teken je tegenspeler (vijanden of dingen die je moet pakken of doelen of ...)
-- [ ] 5. beweeg de tegenspeler
+- [x] 4. teken je tegenspeler (vijanden of dingen die je moet pakken of doelen of ...)
+- [x] 5. beweeg de tegenspeler
 - [ ] 6. zet punten op het scherm 
 - [ ] 7. zorg dat je punten kunt scoren
 - [ ] 8. zorg dat je af kunt

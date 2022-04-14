@@ -56,8 +56,10 @@ var verwerkBotsing = function () {
   // botsing speler tegen vijand
 
 
-  // botsing kogel tegen vijand
-
+  // botsing speler tegen rand
+   if (spelerX < 435 || spelerX > 783) {
+     spelStatus = GAMEOVER;
+   }
   // update punten en health
 
 };
@@ -112,7 +114,12 @@ function setup() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
 }
-
+var gameover = function () {
+       background("black");
+       fill("white");
+       textSize (100);
+       text("je moeder", 400,400);
+}
 /**
  * draw
  * de code in deze functie wordt 50 keer per seconde
@@ -130,6 +137,6 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+     gameover();
   }
 }
