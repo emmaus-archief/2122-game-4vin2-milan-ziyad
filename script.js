@@ -41,7 +41,7 @@ if (keyIsDown(87)){
  }
   // vijand
   if (spelStatus === SPELEN){
-      VijandY = VijandY + 2;
+      VijandY = VijandY + 4;
    
   }
   // kogel
@@ -69,14 +69,16 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   // achtergrond
-background('blue');
+background('green');
 fill(247,104,6);
 rect(370,0,50,720);
 rect(800,0,50,720);
   // vijand
   fill("white");
-  rect(VijandX, VijandY, 50,50);
-  
+  var vijand = function (){
+  rect(random(440,460), VijandY, 50,50);
+  }
+  vijand();
   // kogel
   
   // speler
@@ -110,15 +112,15 @@ var checkGameOver = function () {
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
-
+  
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
 }
 var gameover = function () {
        background("black");
        fill("white");
-       textSize (100);
-       text("je moeder", 400,400);
+       textSize (80);
+       text("Hoe ben je nu al af?????", 250,400);
 }
 /**
  * draw
