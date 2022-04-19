@@ -74,11 +74,11 @@ fill(247,104,6);
 rect(370,0,50,720);
 rect(800,0,50,720);
   // vijand
-  fill("white");
-  var vijand = function (){
-  rect(random(440,460), VijandY, 50,50);
-  }
-  vijand();
+  fill(255,255,255);
+  var x = random(440,780);
+  rect(x,VijandY,50,50);
+  
+
   // kogel
   
   // speler
@@ -115,7 +115,10 @@ function setup() {
   
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
-}
+  //vijanden
+
+  
+  }
 var gameover = function () {
        background("black");
        fill("white");
