@@ -40,10 +40,13 @@ if (keyIsDown(87)){
    spelerY = spelerY +1;
  }
   // vijand
-  if (spelStatus === SPELEN){
+  if (spelStatus===SPELEN||VijandY<500){
       VijandY = VijandY + 4;
   }
- 
+  else{
+    VijandY=VijandY - 5;
+  }
+
   // kogel
 };
 
@@ -80,10 +83,11 @@ rect(370,0,50,720);
 rect(800,0,50,720);
   // vijand
   fill(255,255,255);
+ var blokje= function(x,y){
+  rect(x,y,75,75);
  
-  rect(VijandX,VijandY,50,50);
-  
-
+ }
+ blokje(VijandX, VijandY);
   // kogel
   
   // speler
@@ -94,13 +98,12 @@ rect(800,0,50,720);
 
   // punten en health
 
-  var punten = 1;
+  var punten = 0;
  fill(255,215,0);
   textSize(20);
 text(punten,600,700);
-if (spelStatus === SPELEN){
-  punten = punten + 1;
-}
+punten = punten +1;
+  
 };
 
 /**

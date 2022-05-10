@@ -23,10 +23,10 @@ Basis: uitleg, spelen, afgaan en punten
         - Gebruik variabalen spelerX en spelerY als middelpunt van de speler
 - [x] 4. teken je tegenspeler (vijanden of dingen die je moet pakken of doelen of ...)
 - [x] 5. beweeg de tegenspeler
-- [ ] 6. zet punten op het scherm 
+- [x] 6. zet punten op het scherm 
 - [ ] 7. zorg dat je punten kunt scoren
-- [ ] 8. zorg dat je af kunt
-- [ ] 9. maak game-over-scherm
+- [x] 8. zorg dat je af kunt
+- [x] 9. maak game-over-scherm
 - [ ] 10. maak uitlegscherm
 
 ### Uitbreidingen 1
