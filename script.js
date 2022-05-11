@@ -57,9 +57,9 @@ if (keyIsDown(87)){
  */
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
-if (spelerX-VijandX<70&&
-  spelerX-VijandX>-50&&
-  spelerY-VijandY<35&&
+if (spelerX-VijandX<100&&
+  spelerX-VijandX>-85&&
+  spelerY-VijandY<45&&
     spelerY-VijandY>-20){
   spelStatus = GAMEOVER;
 }
