@@ -18,6 +18,8 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var VijandX = 500;
 var VijandY = 100;
+var cirkelX = 700;
+var cirkelY= 100;
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -48,6 +50,9 @@ if (keyIsDown(87)){
   }
 
   // kogel
+  if (spelStatus===SPELEN){
+    cirkelY = cirkelY + 10;
+  }
 };
 
 /**
@@ -58,8 +63,8 @@ if (keyIsDown(87)){
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
 if (spelerX-VijandX<100&&
-  spelerX-VijandX>-85&&
-  spelerY-VijandY<45&&
+  spelerX-VijandX>-25&&
+  spelerY-VijandY<50&&
     spelerY-VijandY>-20){
   spelStatus = GAMEOVER;
 }
@@ -69,7 +74,12 @@ if (spelerX-VijandX<100&&
      spelStatus = GAMEOVER;
    }
   // update punten en health
-
+ if (spelerX-cirkelX<50&&
+     spelerX-cirkelX>-50&&
+     spelerY-cirkelY<65&&
+     spelerY-cirkelY>-40){
+       punten = punten + 50;
+     }
 };
 
 /**
@@ -77,7 +87,7 @@ if (spelerX-VijandX<100&&
  */
 var tekenAlles = function () {
   // achtergrond
-background('green');
+  background('green');
 fill(247,104,6);
 rect(370,0,50,720);
 rect(800,0,50,720);
@@ -85,9 +95,9 @@ rect(800,0,50,720);
   fill(255,255,255);
  var blokje= function(x,y){
   rect(x,y,75,75);
- 
  }
  blokje(VijandX, VijandY);
+ 
   // kogel
   
   // speler
@@ -100,10 +110,13 @@ rect(800,0,50,720);
 
   var punten = 0;
  fill(255,215,0);
-  textSize(20);
+textSize(20);
+if (spelStatus===SPELEN){
 text(punten,600,700);
-punten = punten +1;
-  
+punten = punten + 0.1;}
+stroke(15);
+fill("yellow");
+ellipse(cirkelX, cirkelY, 40,40); 
 };
 
 /**
@@ -129,7 +142,7 @@ function setup() {
   createCanvas(1280, 720);
   
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('green');
   //vijanden
 
   
@@ -137,7 +150,7 @@ function setup() {
 var gameover = function () {
        background("black");
        fill("white");
-       textSize (80);
+       textSize (70);
        text("Hoe ben je nu al af?????", 250,400);
 }
 /**
