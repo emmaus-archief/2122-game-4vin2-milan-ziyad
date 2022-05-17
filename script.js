@@ -42,16 +42,17 @@ if (keyIsDown(87)){
    spelerY = spelerY +1;
  }
   // vijand
-  if (spelStatus===SPELEN||VijandY<500){
+  if (VijandY<500){
+    if (VijandY===500){
+      VijandY=VijandY - 5;
+    }
       VijandY = VijandY + 4;
   }
-  else{
-    VijandY=VijandY - 5;
-  }
+ 
 
   // kogel
   if (spelStatus===SPELEN){
-    cirkelY = cirkelY + 10;
+    cirkelY = cirkelY + 9;
   }
 };
 
@@ -74,12 +75,16 @@ if (spelerX-VijandX<100&&
      spelStatus = GAMEOVER;
    }
   // update punten en health
- if (spelerX-cirkelX<50&&
-     spelerX-cirkelX>-50&&
-     spelerY-cirkelY<65&&
-     spelerY-cirkelY>-40){
-       punten = punten + 50;
-     }
+ var punten = 0;
+  fill(255,215,0);
+   textSize(20);
+   text(0 + punten,600,700);
+  if (spelerX-cirkelX<50&&
+    spelerX-cirkelX>-50&&
+    spelerY-cirkelY<65&&
+    spelerY-cirkelY>-40){
+      punten+=50;
+    }
 };
 
 /**
@@ -87,6 +92,7 @@ if (spelerX-VijandX<100&&
  */
 var tekenAlles = function () {
   // achtergrond
+  
   background('green');
 fill(247,104,6);
 rect(370,0,50,720);
@@ -108,17 +114,13 @@ rect(800,0,50,720);
 
   // punten en health
 
-  var punten = 0;
- fill(255,215,0);
-textSize(20);
-if (spelStatus===SPELEN){
-text(punten,600,700);
-punten = punten + 0.1;}
-stroke(15);
-fill("yellow");
-ellipse(cirkelX, cirkelY, 40,40); 
+var coin = function(X,Y){
+  fill("yellow");
+  ellipse(X,Y,40,40);
+}
+coin(cirkelX,cirkelY);
 };
-
+ 
 /**
  * return true als het gameover is
  * anders return false
@@ -141,7 +143,7 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
   
-  // Kleur de achtergrond blauw, zodat je het kunt zien
+  // Kleur de achtergrond wit, zodat je het kunt zien
   background('green');
   //vijanden
 
