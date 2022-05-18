@@ -9,10 +9,11 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
-
+var aantal = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = SPELEN;
+const UITLEG = 3;
+var spelStatus = UITLEG;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -42,12 +43,10 @@ if (keyIsDown(87)){
    spelerY = spelerY +1;
  }
   // vijand
-  if (VijandY<500){
-    if (VijandY===500){
-      VijandY=VijandY - 5;
-    }
+  if (spelStatus===SPELEN){
       VijandY = VijandY + 4;
   }
+  
  
 
   // kogel
@@ -149,6 +148,14 @@ function setup() {
 
   
   }
+  var uitleg = function(){
+    background("blue");
+    fill("black");
+    textSize (25);
+    text("Druk op ENTER om te starten", 900,700);
+    textSize(40);
+    text("Ontwijk de witte blokjes en verzamel munten voor punten :)", 100,400);
+  }
 var gameover = function () {
        background("black");
        fill("white");
@@ -160,12 +167,20 @@ var gameover = function () {
  * de code in deze functie wordt 50 keer per seconde
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
+
 function draw() {
+  if (spelStatus === UITLEG) {
+    // teken uitleg scherm
+     uitleg();
+  }
+  if (keyIsDown(13)){
+    spelStatus= SPELEN;
+  }
   if (spelStatus === SPELEN) {
     tekenAlles();
     beweegAlles();
     verwerkBotsing();
-    
+  
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
@@ -173,5 +188,12 @@ function draw() {
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
      gameover();
+     if (keyIsDown(32)){
+       spelStatus=SPELEN;
+       
+     }
   }
+ 
+  
+  
 }
