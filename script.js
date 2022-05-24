@@ -14,6 +14,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
 var spelStatus = UITLEG;
+var img;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -118,6 +119,7 @@ var coin = function(X,Y){
   ellipse(X,Y,40,40);
 }
 coin(cirkelX,cirkelY);
+
 };
  
 /**
@@ -132,7 +134,9 @@ var checkGameOver = function () {
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
-
+function preload(){
+  img = loadImage('Green_Background.png');
+}
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
@@ -141,7 +145,7 @@ var checkGameOver = function () {
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
-  
+ 
   // Kleur de achtergrond wit, zodat je het kunt zien
   background('green');
   //vijanden
@@ -149,18 +153,21 @@ function setup() {
   
   }
   var uitleg = function(){
-    background("blue");
-    fill("black");
+    image(img, 0,0,1280,720);
+    fill("white");
     textSize (25);
     text("Druk op ENTER om te starten", 900,700);
-    textSize(40);
-    text("Ontwijk de witte blokjes en verzamel munten voor punten :)", 100,400);
+    textSize(30);
+    text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40,400);
   }
 var gameover = function () {
        background("black");
        fill("white");
        textSize (70);
        text("Hoe ben je nu al af?????", 250,400);
+       text("Druk op spatie om verder te spelen", 100,500);
+       text("punten = "+ punten, 300,700)
+      
 }
 /**
  * draw
