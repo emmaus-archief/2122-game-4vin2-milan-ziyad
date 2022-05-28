@@ -14,7 +14,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
 var spelStatus = UITLEG;
-var img; var img2;
+var img; var img2; var img3;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -83,7 +83,7 @@ if (spelerX-VijandX<100&&
     spelerX-cirkelX>-50&&
     spelerY-cirkelY<65&&
     spelerY-cirkelY>-40){
-      punten+=50;
+      punten= punten + 50;
     }
 };
 
@@ -103,7 +103,7 @@ rect(800,0,50,720);
   rect(x,y,75,75);
  }
  blokje(VijandX, VijandY);
- 
+ blokje(VijandX+ 150, VijandY-200);
   // kogel
   
   // speler
@@ -135,7 +135,7 @@ var checkGameOver = function () {
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
 function preload(){
-  img = loadImage('Green_Background.png');
+  img = loadImage('goede background.jpg');
   img2 = loadImage('GO.jpg');
 }
 /**
@@ -159,7 +159,7 @@ function setup() {
     textSize (25);
     text("Druk op ENTER om te starten", 900,700);
     textSize(30);
-    text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40,600);
+    text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40,400);
   }
 var gameover = function () {
        image(img2,0,0,1280,720);
