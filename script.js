@@ -95,8 +95,8 @@ var tekenAlles = function () {
   
   background('green');
 fill(247,104,6);
-rect(370,0,50,720);
-rect(800,0,50,720);
+rect(320,0,100,720);
+rect(750,0,100,720);
   // vijand
   fill(255,255,255);
  var blokje= function(x,y){
@@ -137,6 +137,7 @@ var checkGameOver = function () {
 function preload(){
   img = loadImage('goede background.jpg');
   img2 = loadImage('GO.jpg');
+  img3 = loadImage('lava (2).gif')
 }
 /**
  * setup
