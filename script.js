@@ -158,7 +158,7 @@ function setup() {
     textSize (25);
     text("Druk op ENTER om te starten", 900,700);
     textSize(30);
-    text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40,400);
+    text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40,600);
   }
 var gameover = function () {
        background("black");
