@@ -14,7 +14,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
 var spelStatus = UITLEG;
-var img;
+var img; var img2;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -136,6 +136,7 @@ var checkGameOver = function () {
 /* ********************************************* */
 function preload(){
   img = loadImage('Green_Background.png');
+  img2 = loadImage('GO.jpg');
 }
 /**
  * setup
@@ -161,12 +162,12 @@ function setup() {
     text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40,600);
   }
 var gameover = function () {
-       background("black");
+       image(img2,0,0,1280,720);
        fill("white");
-       textSize (70);
-       text("Hoe ben je nu al af?????", 250,400);
-       text("Druk op spatie om verder te spelen", 100,500);
-       text("punten = "+ punten, 300,700)
+       textSize (60);
+       text("Hoe ben je nu al af?????", 300,550);
+       text("Druk op spatie om verder te spelen", 150,650);
+       text("punten = "+ punten, 200,100)
       
 }
 /**
@@ -196,8 +197,7 @@ function draw() {
     // teken game-over scherm
      gameover();
      if (keyIsDown(32)){
-       spelStatus=SPELEN;
-       
+       spelStatus = SPELEN;  
      }
   }
  
