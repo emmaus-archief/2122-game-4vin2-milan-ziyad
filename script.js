@@ -71,11 +71,17 @@ if (spelerX-VijandX<100&&
 }
 
   // botsing speler tegen rand
-   if (spelerX < 435 || spelerX > 783) {
+   if (spelerX < 435 || spelerX > 740) {
      spelStatus = GAMEOVER;
    }
+   if (spelerY < 0){
+     spelStatus = GAMEOVER;
+       }
+       if (spelerY > 720){
+         spelStatus = GAMEOVER;
+       }
   // update punten en health
- var punten = 0;
+var punten = 0;
   fill(255,215,0);
    textSize(20);
    text(0 + punten,600,700);
@@ -97,6 +103,9 @@ var tekenAlles = function () {
 fill(247,104,6);
 rect(320,0,100,720);
 rect(750,0,100,720);
+fill(255,0,0);
+line(430,2,745,2);
+line(430,715,745,715);
   // vijand
   fill(255,255,255);
  var blokje= function(x,y){
@@ -137,7 +146,7 @@ var checkGameOver = function () {
 function preload(){
   img = loadImage('goede background.jpg');
   img2 = loadImage('GO.jpg');
-  img3 = loadImage('lava (2).gif')
+  
 }
 /**
  * setup
