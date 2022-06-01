@@ -44,12 +44,10 @@ if (keyIsDown(87)){
    spelerY = spelerY +1;
  }
   // vijand
-  if (spelStatus===SPELEN){
-      VijandY = VijandY + 4;
-  }
+ if (spelStatus = SPELEN){
+VijandY = VijandY + 4;
+ }
   
- 
-
   // kogel
   if (spelStatus===SPELEN){
     cirkelY = cirkelY + 9;
@@ -71,13 +69,13 @@ if (spelerX-VijandX<100&&
 }
 
   // botsing speler tegen rand
-   if (spelerX < 435 || spelerX > 740) {
+   if (spelerX < 440 || spelerX > 730) {
      spelStatus = GAMEOVER;
    }
    if (spelerY < 0){
      spelStatus = GAMEOVER;
        }
-       if (spelerY > 720){
+       if (spelerY > 710){
          spelStatus = GAMEOVER;
        }
   // update punten en health
@@ -104,8 +102,8 @@ fill(247,104,6);
 rect(320,0,100,720);
 rect(750,0,100,720);
 fill(255,0,0);
-line(430,2,745,2);
-line(430,715,745,715);
+rect(420,2,330,3);
+rect(420,715,330,3);
   // vijand
   fill(255,255,255);
  var blokje= function(x,y){
@@ -158,7 +156,7 @@ function setup() {
   createCanvas(1280, 720);
  
   // Kleur de achtergrond wit, zodat je het kunt zien
-  background('green');
+  background("green");
   //vijanden
 
   
@@ -207,7 +205,7 @@ function draw() {
     // teken game-over scherm
      gameover();
      if (keyIsDown(32)){
-       spelStatus = SPELEN;  
+         spelStatus = SPELEN;
      }
   }
  
