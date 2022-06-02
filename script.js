@@ -9,7 +9,7 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
-var aantal = 0;
+var punten = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
@@ -79,7 +79,7 @@ if (spelerX-VijandX<100&&
          spelStatus = GAMEOVER;
        }
   // update punten en health
-var punten = 0;
+
   fill(255,215,0);
    textSize(20);
    
@@ -177,7 +177,10 @@ var gameover = function () {
        textSize (60);
        text("Hoe ben je nu al af?????", 300,550);
        text("Druk op spatie om verder te spelen", 150,650);
-       text("punten = "+ punten, 200,100)
+       text("punten = " + punten, 500,150);
+       if (punten === 0){
+         text("noob", 800,150);
+       }
       
 }
 /**
@@ -208,9 +211,14 @@ function draw() {
      gameover();
      if (keyIsDown(32)){
          spelStatus = SPELEN;
-     }
+         spelerX = 600;
+        spelerY = 600; // y-positie van speler
+         VijandX = 500;
+         VijandY = 100;
+         cirkelX = 700;
+         cirkelY= 100;
+         punten = 0;
   }
- 
   
-  
+}
 }
