@@ -45,12 +45,12 @@ if (keyIsDown(87)){
  }
   // vijand
  if (spelStatus = SPELEN){
-VijandY = VijandY + 4;
+VijandY = VijandY + 5;
  }
   
   // kogel
   if (spelStatus===SPELEN){
-    cirkelY = cirkelY + 9;
+    cirkelY = cirkelY + 5;
   }
 };
 
@@ -107,12 +107,10 @@ fill(255,0,0);
 rect(420,2,330,3);
 rect(420,715,330,3);
   // vijand
+  image(img3, VijandX, VijandY, 75, 75);
+  image(img3, VijandX+150, VijandY+150, 75, 75);
   fill(255,255,255);
- var blokje= function(x,y){
-  rect(x,y,75,75);
- }
- blokje(VijandX, VijandY);
- blokje(VijandX+ 150, VijandY-200);
+
   // kogel
   
   // speler
@@ -146,6 +144,7 @@ var checkGameOver = function () {
 function preload(){
   img = loadImage('goede background.jpg');
   img2 = loadImage('GO.jpg');
+  img3 = loadImage('purepng.com-shrekshrekcomputer-animatedfantasy-filmfairy-talebook-1701528653667zkisp.png');
   
 }
 /**
@@ -222,3 +221,12 @@ function draw() {
   
 }
 }
+
+
+
+fill(255,255,255);
+ var blokje= function(x,y){
+  rect(x,y,75,75);
+ }
+ blokje(VijandX, VijandY);
+ blokje(VijandX+ 150, VijandY-200);
