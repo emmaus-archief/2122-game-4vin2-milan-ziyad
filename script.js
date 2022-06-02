@@ -82,14 +82,16 @@ if (spelerX-VijandX<100&&
 var punten = 0;
   fill(255,215,0);
    textSize(20);
-   text(0 + punten,600,700);
+   
   if (spelerX-cirkelX<50&&
-    spelerX-cirkelX>-50&&
+    spelerX-cirkelX>-40&&
     spelerY-cirkelY<65&&
     spelerY-cirkelY>-40){
       punten= punten + 50;
     }
-};
+    text(punten,600,700);
+
+};  
 
 /**
  * Tekent spelscherm
