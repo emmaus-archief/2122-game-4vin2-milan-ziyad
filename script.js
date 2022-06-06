@@ -20,6 +20,8 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var VijandX = 500;
 var VijandY = 100;
+var vijand2X = 650;
+var vijand2Y = 250;
 var cirkelX = 700;
 var cirkelY= 100;
 /* ********************************************* */
@@ -47,7 +49,9 @@ if (keyIsDown(87)){
  if (spelStatus = SPELEN){
 VijandY = VijandY + 5;
  }
-  
+  if (spelStatus = SPELEN){
+    vijand2Y = vijand2Y +5;
+  }
   // kogel
   if (spelStatus===SPELEN){
     cirkelY = cirkelY + 5;
@@ -67,12 +71,17 @@ if (spelerX-VijandX<100&&
     spelerY-VijandY>-20){
   spelStatus = GAMEOVER;
 }
-
+if (spelerX-vijand2X<100&&
+  spelerX-vijand2X>-25&&
+  spelerY-vijand2Y<50&&
+  spelerY-vijand2Y>-20){
+    spelStatus = GAMEOVER;
+  }
   // botsing speler tegen rand
    if (spelerX < 440 || spelerX > 730) {
      spelStatus = GAMEOVER;
    }
-   if (spelerY < 0){
+   if (spelerY < 10){
      spelStatus = GAMEOVER;
        }
        if (spelerY > 710){
@@ -108,7 +117,7 @@ rect(420,2,330,3);
 rect(420,715,330,3);
   // vijand
   image(img3, VijandX, VijandY, 75, 75);
-  image(img3, VijandX+150, VijandY+150, 75, 75);
+  image(img3, vijand2X, vijand2Y, 75, 75);
   fill(255,255,255);
 
   // kogel
@@ -126,7 +135,7 @@ var coin = function(X,Y){
   ellipse(X,Y,40,40);
 }
 coin(cirkelX,cirkelY);
-
+coin(cirkelX - 200, cirkelY - 300);
 };
  
 /**
@@ -176,9 +185,9 @@ var gameover = function () {
        textSize (60);
        text("Hoe ben je nu al af?????", 300,550);
        text("Druk op spatie om verder te spelen", 150,650);
-       text("punten = " + punten, 500,150);
+       text("punten = " + punten, 450,150);
        if (punten === 0){
-         text("noob", 800,150);
+         text("noob", 750,150);
        }
       
 }
@@ -211,9 +220,11 @@ function draw() {
      if (keyIsDown(32)){
          spelStatus = SPELEN;
          spelerX = 600;
-        spelerY = 600; // y-positie van speler
+         spelerY = 600; // y-positie van speler
          VijandX = 500;
          VijandY = 100;
+         vijand2X = 650;
+         vijand2Y= 250;
          cirkelX = 700;
          cirkelY= 100;
          punten = 0;
@@ -221,12 +232,3 @@ function draw() {
   
 }
 }
-
-
-
-fill(255,255,255);
- var blokje= function(x,y){
-  rect(x,y,75,75);
- }
- blokje(VijandX, VijandY);
- blokje(VijandX+ 150, VijandY-200);
