@@ -24,7 +24,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] 4. teken je tegenspeler (vijanden of dingen die je moet pakken of doelen of ...)
 - [x] 5. beweeg de tegenspeler
 - [x] 6. zet punten op het scherm 
-- [ ] 7. zorg dat je punten kunt scoren
+- [x] 7. zorg dat je punten kunt scoren
 - [x] 8. zorg dat je af kunt
 - [x] 9. maak game-over-scherm
 - [x] 10. maak uitlegscherm

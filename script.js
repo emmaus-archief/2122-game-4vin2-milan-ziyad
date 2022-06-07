@@ -18,7 +18,7 @@ var img; var img2; var img3;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var VijandX = 500;
+var VijandX = 525;
 var VijandY = 100;
 var vijand2X = 650;
 var vijand2Y = 250;
@@ -34,16 +34,16 @@ var cirkelY= 100;
 var beweegAlles = function () {
   // speler
 if (keyIsDown(65)){
-  spelerX=spelerX-5;
+  spelerX=spelerX-3;
 }
 if (keyIsDown(68)){
-  spelerX = spelerX + 5;
+  spelerX = spelerX + 3;
 }
 if (keyIsDown(87)){
   spelerY = spelerY - 3;
 }
  if (keyIsDown(83)){
-   spelerY = spelerY +1;
+   spelerY = spelerY +2;
  }
   // vijand
  if (spelStatus = SPELEN){
@@ -116,10 +116,11 @@ fill(255,0,0);
 rect(420,2,330,3);
 rect(420,715,330,3);
   // vijand
-  image(img3, VijandX, VijandY, 75, 75);
-  image(img3, vijand2X, vijand2Y, 75, 75);
-  fill(255,255,255);
-
+image(img3, VijandX, VijandY, 75, 75);
+image(img3, vijand2X, vijand2Y, 75, 75);
+  
+ 
+  
   // kogel
   
   // speler
@@ -136,8 +137,9 @@ var coin = function(X,Y){
 }
 coin(cirkelX,cirkelY);
 coin(cirkelX - 200, cirkelY - 300);
-};
- 
+
+
+}
 /**
  * return true als het gameover is
  * anders return false
@@ -184,7 +186,7 @@ var gameover = function () {
        fill("white");
        textSize (60);
        text("Hoe ben je nu al af?????", 300,550);
-       text("Druk op spatie om verder te spelen", 150,650);
+       text("Druk op spatie om opnieuw te spelen", 150,650);
        text("punten = " + punten, 450,150);
        if (punten === 0){
          text("noob", 750,150);
@@ -221,7 +223,7 @@ function draw() {
          spelStatus = SPELEN;
          spelerX = 600;
          spelerY = 600; // y-positie van speler
-         VijandX = 500;
+         VijandX = 525;
          VijandY = 100;
          vijand2X = 650;
          vijand2Y= 250;
