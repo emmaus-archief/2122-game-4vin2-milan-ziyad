@@ -23,7 +23,10 @@ var VijandY = 100;
 var vijand2X = 650;
 var vijand2Y = 250;
 var cirkelX = 700;
-var cirkelY= 100;
+var cirkelY = 100;
+var cirkel2X = 450;
+var cirkel2Y = 200;
+
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -33,29 +36,35 @@ var cirkelY= 100;
  */
 var beweegAlles = function () {
   // speler
-if (keyIsDown(65)){
-  spelerX=spelerX-3;
-}
-if (keyIsDown(68)){
-  spelerX = spelerX + 3;
-}
-if (keyIsDown(87)){
-  spelerY = spelerY - 3;
-}
- if (keyIsDown(83)){
-   spelerY = spelerY +2;
- }
-  // vijand
- if (spelStatus = SPELEN){
-VijandY = VijandY + 5;
- }
-  if (spelStatus = SPELEN){
-    vijand2Y = vijand2Y +5;
+  if (keyIsDown(65)) {
+    spelerX = spelerX - 2;
   }
+  if (keyIsDown(68)) {
+    spelerX = spelerX + 2;
+  }
+  if (keyIsDown(87)) {
+    spelerY = spelerY - 2;
+  }
+  if (keyIsDown(83)) {
+    spelerY = spelerY + 1;
+  }
+  // vijand
+  if (spelStatus = SPELEN) {
+    VijandY = VijandY + 5;
+  }
+  if (spelStatus = SPELEN) {
+    vijand2Y = vijand2Y + 5;
+  }
+
   // kogel
-  if (spelStatus===SPELEN){
+  if (spelStatus === SPELEN) {
     cirkelY = cirkelY + 5;
   }
+  if (spelStatus === SPELEN) {
+    cirkel2Y = cirkel2Y + 5;
+  }
+
+
 };
 
 /**
@@ -65,64 +74,74 @@ VijandY = VijandY + 5;
  */
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
-if (spelerX-VijandX<100&&
-  spelerX-VijandX>-25&&
-  spelerY-VijandY<50&&
-    spelerY-VijandY>-20){
-  spelStatus = GAMEOVER;
-}
-if (spelerX-vijand2X<100&&
-  spelerX-vijand2X>-25&&
-  spelerY-vijand2Y<50&&
-  spelerY-vijand2Y>-20){
+  if (spelerX - VijandX < 100 &&
+    spelerX - VijandX > -25 &&
+    spelerY - VijandY < 50 &&
+    spelerY - VijandY > -20) {
     spelStatus = GAMEOVER;
   }
+  if (spelerX - vijand2X < 100 &&
+    spelerX - vijand2X > -25 &&
+    spelerY - vijand2Y < 50 &&
+    spelerY - vijand2Y > -20) {
+    spelStatus = GAMEOVER;
+  }
+
   // botsing speler tegen rand
-   if (spelerX < 440 || spelerX > 730) {
-     spelStatus = GAMEOVER;
-   }
-   if (spelerY < 10){
-     spelStatus = GAMEOVER;
-       }
-       if (spelerY > 710){
-         spelStatus = GAMEOVER;
-       }
+  if (spelerX < 440 || spelerX > 730) {
+    spelStatus = GAMEOVER;
+  }
+  if (spelerY < 10) {
+    spelStatus = GAMEOVER;
+  }
+  if (spelerY > 710) {
+    spelStatus = GAMEOVER;
+  }
   // update punten en health
 
-  fill(255,215,0);
-   textSize(20);
-   
-  if (spelerX-cirkelX<50&&
-    spelerX-cirkelX>-40&&
-    spelerY-cirkelY<65&&
-    spelerY-cirkelY>-40){
-      punten= punten + 50;
-    }
-    text(punten,600,700);
+  fill(255, 215, 0);
+  textSize(20);
 
-};  
+  if (spelerX - cirkelX < 50 &&
+    spelerX - cirkelX > -40 &&
+    spelerY - cirkelY < 65 &&
+    spelerY - cirkelY > -40) {
+    punten = punten + 50;
+  }
+  if (spelerX - cirkel2X < 50 &&
+    spelerX - cirkel2X > -40 &&
+    spelerY - cirkel2Y < 65 &&
+    spelerY - cirkel2Y > -40) {
+    punten = punten + 50;
+  }
+
+
+
+  text(punten, 600, 700);
+
+};
 
 /**
  * Tekent spelscherm
  */
 var tekenAlles = function () {
   // achtergrond
-  
+
   background('green');
-fill(247,104,6);
-rect(320,0,100,720);
-rect(750,0,100,720);
-fill(255,0,0);
-rect(420,2,330,3);
-rect(420,715,330,3);
+  fill(247, 104, 6);
+  rect(320, 0, 100, 720);
+  rect(750, 0, 100, 720);
+  fill(255, 0, 0);
+  rect(420, 2, 330, 3);
+  rect(420, 715, 330, 3);
   // vijand
-image(img3, VijandX, VijandY, 75, 75);
-image(img3, vijand2X, vijand2Y, 75, 75);
-  
- 
-  
+  image(img3, VijandX, VijandY, 75, 75);
+  image(img3, vijand2X, vijand2Y, 75, 75);
+
+
+
   // kogel
-  
+
   // speler
   fill("white");
   rect(spelerX - 18, spelerY - 8, 36, 15);
@@ -131,13 +150,15 @@ image(img3, vijand2X, vijand2Y, 75, 75);
 
   // punten en health
 
-var coin = function(X,Y){
-  fill("yellow");
-  ellipse(X,Y,40,40);
-}
-coin(cirkelX,cirkelY);
-coin(cirkelX - 200, cirkelY - 300);
+  var coin = function (X, Y) {
+    fill("yellow");
+    ellipse(X, Y, 40, 40);
+  }
+  coin(cirkelX, cirkelY);
+  coin(cirkelX - 200, cirkelY - 300);
 
+  coin(cirkel2X, cirkel2Y);
+  coin(cirkel2X - 200, cirkel2Y - 300);
 
 }
 /**
@@ -152,11 +173,11 @@ var checkGameOver = function () {
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
-function preload(){
+function preload() {
   img = loadImage('goede background.jpg');
   img2 = loadImage('GO.jpg');
   img3 = loadImage('purepng.com-shrekshrekcomputer-animatedfantasy-filmfairy-talebook-1701528653667zkisp.png');
-  
+
 }
 /**
  * setup
@@ -166,32 +187,31 @@ function preload(){
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
- 
+
   // Kleur de achtergrond wit, zodat je het kunt zien
   background("green");
   //vijanden
 
-  
-  }
-  var uitleg = function(){
-    image(img, 0,0,1280,720);
-    fill("white");
-    textSize (25);
-    text("Druk op ENTER om te starten", 900,700);
-    textSize(30);
-    text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40,400);
-  }
+
+}
+var uitleg = function () {
+  image(img, 0, 0, 1280, 720);
+  fill("white");
+  textSize(25);
+  text("Druk op ENTER om te starten", 900, 700);
+  textSize(30);
+  text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40, 400);
+}
 var gameover = function () {
-       image(img2,0,0,1280,720);
-       fill("white");
-       textSize (60);
-       text("Hoe ben je nu al af?????", 300,550);
-       text("Druk op spatie om opnieuw te spelen", 150,650);
-       text("punten = " + punten, 450,150);
-       if (punten === 0){
-         text("noob", 750,150);
-       }
-      
+  image(img2, 0, 0, 1280, 720);
+  fill("white");
+  textSize(60);
+  text("Druk op spatie om opnieuw te spelen", 150, 650);
+  text("punten = " + punten, 450, 150);
+  if (punten === 0) {
+    text("noob", 750, 150);
+  }
+
 }
 /**
  * draw
@@ -202,35 +222,37 @@ var gameover = function () {
 function draw() {
   if (spelStatus === UITLEG) {
     // teken uitleg scherm
-     uitleg();
+    uitleg();
   }
-  if (keyIsDown(13)){
-    spelStatus= SPELEN;
+  if (keyIsDown(13)) {
+    spelStatus = SPELEN;
   }
   if (spelStatus === SPELEN) {
     tekenAlles();
     beweegAlles();
     verwerkBotsing();
-  
+
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-     gameover();
-     if (keyIsDown(32)){
-         spelStatus = SPELEN;
-         spelerX = 600;
-         spelerY = 600; // y-positie van speler
-         VijandX = 525;
-         VijandY = 100;
-         vijand2X = 650;
-         vijand2Y= 250;
-         cirkelX = 700;
-         cirkelY= 100;
-         punten = 0;
+    gameover();
+    if (keyIsDown(32)) {
+      spelStatus = SPELEN;
+      spelerX = 600;
+      spelerY = 600; // y-positie van speler
+      VijandX = 525;
+      VijandY = 100;
+      vijand2X = 650;
+      vijand2Y = 250;
+      cirkelX = 700;
+      cirkelY = 100;
+      cirkel2X = 450;
+      cirkel2Y = 200;
+      punten = 0;
+    }
+
   }
-  
-}
 }
