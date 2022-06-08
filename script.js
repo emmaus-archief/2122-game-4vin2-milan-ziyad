@@ -213,6 +213,14 @@ var gameover = function () {
   }
 
 }
+var winnaar = function (){
+  background("blue");
+  textSize(40);
+  fill("yellow");
+  text("Gefeliciteerd. Je hebt het gehaald.", 350, 400);
+  textSize(30);
+  text("Druk op spatie om opnieuw te spelen", 400, 600);
+}
 /**
  * draw
  * de code in deze functie wordt 50 keer per seconde
@@ -223,6 +231,21 @@ function draw() {
   if (spelStatus === UITLEG) {
     // teken uitleg scherm
     uitleg();
+  }
+  if (spelStatus === WINNAAR){
+    winnaar();
+    if (keyIsDown(32)){
+      spelStatus = UITLEG;
+      spelerX = 600;
+      spelerY = 600; // y-positie van speler
+      VijandX = 525;
+      VijandY = 100;
+      vijand2X = 650;
+      vijand2Y= 250;
+      cirkelX = 700;
+      cirkelY= 100;
+      punten = 0;
+}
   }
   if (keyIsDown(13)) {
     spelStatus = SPELEN;
