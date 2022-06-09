@@ -13,6 +13,7 @@ var punten = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
+const WINNAAR = 4;
 var spelStatus = UITLEG;
 var img; var img2; var img3;
 
@@ -92,7 +93,7 @@ var verwerkBotsing = function () {
     spelStatus = GAMEOVER;
   }
   if (spelerY < 10) {
-    spelStatus = GAMEOVER;
+    spelStatus = WINNAAR;
   }
   if (spelerY > 710) {
     spelStatus = GAMEOVER;
@@ -131,8 +132,9 @@ var tekenAlles = function () {
   fill(247, 104, 6);
   rect(320, 0, 100, 720);
   rect(750, 0, 100, 720);
-  fill(255, 0, 0);
+  fill(0, 0, 255);
   rect(420, 2, 330, 3);
+ fill(255,0,0);
   rect(420, 715, 330, 3);
   // vijand
   image(img3, VijandX, VijandY, 75, 75);
@@ -201,6 +203,7 @@ var uitleg = function () {
   text("Druk op ENTER om te starten", 900, 700);
   textSize(30);
   text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40, 400);
+  text("Bereik de blauwe lijn om het level te halen", 350, 500);
 }
 var gameover = function () {
   image(img2, 0, 0, 1280, 720);
@@ -231,6 +234,9 @@ function draw() {
   if (spelStatus === UITLEG) {
     // teken uitleg scherm
     uitleg();
+    if (keyIsDown(13)) {
+      spelStatus = SPELEN;
+    }
   }
   if (spelStatus === WINNAAR){
     winnaar();
@@ -247,9 +253,7 @@ function draw() {
       punten = 0;
 }
   }
-  if (keyIsDown(13)) {
-    spelStatus = SPELEN;
-  }
+ 
   if (spelStatus === SPELEN) {
     tekenAlles();
     beweegAlles();
