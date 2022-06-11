@@ -20,9 +20,9 @@ var img; var img2; var img3;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var VijandX = 525;
-var VijandY = 100;
+var VijandY = 0;
 var vijand2X = 650;
-var vijand2Y = 250;
+var vijand2Y = 150;
 var cirkelX = 700;
 var cirkelY = 100;
 var cirkel2X = 450;
@@ -60,8 +60,6 @@ var beweegAlles = function () {
   // kogel
   if (spelStatus === SPELEN) {
     cirkelY = cirkelY + 5;
-  }
-  if (spelStatus === SPELEN) {
     cirkel2Y = cirkel2Y + 5;
   }
 
@@ -87,7 +85,18 @@ var verwerkBotsing = function () {
     spelerY - vijand2Y > -20) {
     spelStatus = GAMEOVER;
   }
-
+if (spelerX - (VijandX - 100)< 100&&
+spelerX - (VijandX - 100)> -25&&
+spelerY - (VijandY -200)< 50 &&
+spelerY - (VijandY - 200)> -20){
+  spelStatus = GAMEOVER;
+}
+if (spelerX - (vijand2X - 50)< 100&&
+spelerX - (vijand2X - 50)> -25&&
+spelerY - (vijand2Y - 400)< 50&&
+spelerY - (vijand2Y - 400)> -20){
+  spelStatus = GAMEOVER;
+}
   // botsing speler tegen rand
   if (spelerX < 440 || spelerX > 730) {
     spelStatus = GAMEOVER;
@@ -107,19 +116,27 @@ var verwerkBotsing = function () {
     spelerX - cirkelX > -40 &&
     spelerY - cirkelY < 65 &&
     spelerY - cirkelY > -40) {
-    punten = punten + 50;
+    punten = punten + 25;
   }
   if (spelerX - cirkel2X < 50 &&
     spelerX - cirkel2X > -40 &&
     spelerY - cirkel2Y < 65 &&
     spelerY - cirkel2Y > -40) {
-    punten = punten + 50;
+    punten = punten + 25;
   }
-
-
-
+  if (spelerX - (cirkelX -200)<50&&
+    spelerX - (cirkelX-200) > -40&&
+    spelerY - (cirkelY-300)< 65 &&
+    spelerY - (cirkelY-300) > -40){
+      punten = punten + 25;
+    }
+    if (spelerX - (cirkel2X +250)< 50 &&
+    spelerX - (cirkel2X +250)>-40&&
+    spelerY - (cirkel2Y - 600)< 65&&
+    spelerY - (cirkel2Y - 600)> -40){
+      punten = punten + 25;
+    }
   text(punten, 600, 700);
-
 };
 
 /**
@@ -137,20 +154,19 @@ var tekenAlles = function () {
  fill(255,0,0);
   rect(420, 715, 330, 3);
   // vijand
+
   image(img3, VijandX, VijandY, 75, 75);
   image(img3, vijand2X, vijand2Y, 75, 75);
-
-
-
+  image(img3, VijandX - 100, VijandY - 200, 75,75);
+  image(img3, vijand2X- 50, vijand2Y - 400,75,75);
   // kogel
-
   // speler
   fill("white");
   rect(spelerX - 18, spelerY - 8, 36, 15);
   fill("black");
   ellipse(spelerX, spelerY, 20, 20);
 
-  // punten en health
+  // punten
 
   var coin = function (X, Y) {
     fill("yellow");
@@ -160,7 +176,7 @@ var tekenAlles = function () {
   coin(cirkelX - 200, cirkelY - 300);
 
   coin(cirkel2X, cirkel2Y);
-  coin(cirkel2X - 200, cirkel2Y - 300);
+  coin(cirkel2X + 250, cirkel2Y - 600);
 
 }
 /**
@@ -223,6 +239,7 @@ var winnaar = function (){
   text("Gefeliciteerd. Je hebt het gehaald.", 350, 400);
   textSize(30);
   text("Druk op spatie om opnieuw te spelen", 400, 600);
+  text("punten = "+ punten, 550, 500);
 }
 /**
  * draw
