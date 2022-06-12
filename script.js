@@ -38,10 +38,10 @@ var cirkel2Y = 200;
 var beweegAlles = function () {
   // speler
   if (keyIsDown(65)) {
-    spelerX = spelerX - 1.5;
+    spelerX = spelerX - 2;
   }
   if (keyIsDown(68)) {
-    spelerX = spelerX + 1.5;
+    spelerX = spelerX + 2;
   }
   if (keyIsDown(87)) {
     spelerY = spelerY - 2;
@@ -85,36 +85,37 @@ var verwerkBotsing = function () {
     spelerY - vijand2Y > -20) {
     spelStatus = GAMEOVER;
   }
-if (spelerX - (VijandX - 100)< 100&&
-spelerX - (VijandX - 100)> -25&&
-spelerY - (VijandY -200)< 50 &&
-spelerY - (VijandY - 200)> -20){
-  spelStatus = GAMEOVER;
-}
-if (spelerX - (vijand2X - 50)< 100&&
-spelerX - (vijand2X - 50)> -25&&
-spelerY - (vijand2Y - 400)< 50&&
-spelerY - (vijand2Y - 400)> -20){
-  spelStatus = GAMEOVER;
-}
-if (spelerX -(VijandX - 70)< 100&&
-   spelerX - (VijandX - 70)>-25&&
-   spelerY - (VijandY - 350)< 50&&
-   spelerY - (VijandY - 350)> -20){
-     spelStatus = GAMEOVER;
-   }
-if (spelerX - (VijandX + 90)< 95&&
-    spelerX - (VijandX + 90)> -25&&
-    spelerY - (VijandY -480)< 50&&
-    spelerY - (VijandY - 480)>-20){
-      spelStatus = GAMEOVER;
-    }
-if (spelerX - (vijand2X-120)<160&&
-spelerX - (vijand2X -120)> -5&&
-spelerY - (vijand2Y - 830)< 125&&
-spelerY - (vijand2Y - 830)>-20){
-  spelStatus = GAMEOVER;
-}
+  if (spelerX - (VijandX - 100) < 100 &&
+    spelerX - (VijandX - 100) > -25 &&
+    spelerY - (VijandY - 200) < 50 &&
+    spelerY - (VijandY - 200) > -20) {
+    spelStatus = GAMEOVER;
+  }
+  if (spelerX - (vijand2X - 50) < 100 &&
+    spelerX - (vijand2X - 50) > -25 &&
+    spelerY - (vijand2Y - 400) < 50 &&
+    spelerY - (vijand2Y - 400) > -20) {
+    spelStatus = GAMEOVER;
+  }
+  if (spelerX - (VijandX - 70) < 100 &&
+    spelerX - (VijandX - 70) > -25 &&
+    spelerY - (VijandY - 350) < 50 &&
+    spelerY - (VijandY - 350) > -20) {
+    spelStatus = GAMEOVER;
+  }
+  if (spelerX - (VijandX + 90) < 95 &&
+    spelerX - (VijandX + 90) > -25 &&
+    spelerY - (VijandY - 480) < 50 &&
+    spelerY - (VijandY - 480) > -20) {
+    spelStatus = GAMEOVER;
+  }
+  if (spelerX - (vijand2X - 120) < 160 &&
+    spelerX - (vijand2X - 120) > -5 &&
+    spelerY - (vijand2Y - 830) < 125 &&
+    spelerY - (vijand2Y - 830) > -20) {
+    spelStatus = GAMEOVER;
+  }
+
   // botsing speler tegen rand
   if (spelerX < 440 || spelerX > 730) {
     spelStatus = GAMEOVER;
@@ -142,24 +143,24 @@ spelerY - (vijand2Y - 830)>-20){
     spelerY - cirkel2Y > -40) {
     punten = punten + 25;
   }
-  if (spelerX - (cirkelX -140)<50&&
-    spelerX - (cirkelX-140) > -40&&
-    spelerY - (cirkelY-280)< 65 &&
-    spelerY - (cirkelY-280) > -40){
-      punten = punten + 25;
-    }
-    if (spelerX - (cirkel2X +250)< 50 &&
-    spelerX - (cirkel2X +250)>-40&&
-    spelerY - (cirkel2Y - 600)< 65&&
-    spelerY - (cirkel2Y - 600)> -40){
-      punten = punten + 25;
-    }
-    if (spelerX - (cirkelX -220)<50 &&
-        spelerX - (cirkelX - 220)> -40&&
-        spelerY - (cirkelY - 600)< 65&&
-        spelerY - (cirkelY - 600)> -40){
-          punten = punten + 25;
-        }
+  if (spelerX - (cirkelX - 140) < 50 &&
+    spelerX - (cirkelX - 140) > -40 &&
+    spelerY - (cirkelY - 280) < 65 &&
+    spelerY - (cirkelY - 280) > -40) {
+    punten = punten + 25;
+  }
+  if (spelerX - (cirkel2X + 250) < 50 &&
+    spelerX - (cirkel2X + 250) > -40 &&
+    spelerY - (cirkel2Y - 600) < 65 &&
+    spelerY - (cirkel2Y - 600) > -40) {
+    punten = punten + 25;
+  }
+  if (spelerX - (cirkelX - 220) < 50 &&
+    spelerX - (cirkelX - 220) > -40 &&
+    spelerY - (cirkelY - 600) < 65 &&
+    spelerY - (cirkelY - 600) > -40) {
+    punten = punten + 25;
+  }
   text(punten, 600, 700);
 };
 
@@ -175,17 +176,17 @@ var tekenAlles = function () {
   rect(750, 0, 100, 720);
   fill(0, 0, 255);
   rect(420, 2, 330, 3);
- fill(255,0,0);
+  fill(255, 0, 0);
   rect(420, 715, 330, 3);
   // vijand
 
   image(img3, VijandX, VijandY, 75, 75);
   image(img3, vijand2X, vijand2Y, 75, 75);
-  image(img3, VijandX - 100, VijandY - 200, 75,75);
-  image(img3, vijand2X- 50, vijand2Y - 400,75,75);
-  image(img3, VijandX - 70, VijandY - 350, 75,75);
-  image(img3, VijandX+ 90, VijandY - 480, 75, 75);
-  image(img3, vijand2X - 120, vijand2Y - 830, 150,150);
+  image(img3, VijandX - 100, VijandY - 200, 75, 75);
+  image(img3, vijand2X - 50, vijand2Y - 400, 75, 75);
+  image(img3, VijandX - 70, VijandY - 350, 75, 75);
+  image(img3, VijandX + 90, VijandY - 480, 75, 75);
+  image(img3, vijand2X - 120, vijand2Y - 830, 150, 150);
   // kogel
   // speler
   fill("white");
@@ -201,7 +202,7 @@ var tekenAlles = function () {
   }
   coin(cirkelX, cirkelY);
   coin(cirkelX - 140, cirkelY - 280);
-  coin(cirkelX -220, cirkelY - 600);
+  coin(cirkelX - 220, cirkelY - 600);
   coin(cirkel2X, cirkel2Y);
   coin(cirkel2X + 250, cirkel2Y - 600);
 
@@ -222,7 +223,6 @@ function preload() {
   img = loadImage('goede background.jpg');
   img2 = loadImage('GO.jpg');
   img3 = loadImage('purepng.com-shrekshrekcomputer-animatedfantasy-filmfairy-talebook-1701528653667zkisp.png');
-
 }
 /**
  * setup
@@ -259,14 +259,14 @@ var gameover = function () {
   }
 
 }
-var winnaar = function (){
+var winnaar = function () {
   background("blue");
   textSize(40);
   fill("yellow");
   text("Gefeliciteerd. Je hebt het gehaald.", 350, 400);
   textSize(30);
   text("Druk op spatie om opnieuw te spelen", 400, 600);
-  text("punten = "+ punten, 550, 500);
+  text("punten = " + punten, 550, 500);
 }
 /**
  * draw
@@ -282,22 +282,22 @@ function draw() {
       spelStatus = SPELEN;
     }
   }
-  if (spelStatus === WINNAAR){
+  if (spelStatus === WINNAAR) {
     winnaar();
-    if (keyIsDown(32)){
+    if (keyIsDown(32)) {
       spelStatus = UITLEG;
       spelerX = 600;
       spelerY = 600; // y-positie van speler
       VijandX = 525;
       VijandY = 100;
       vijand2X = 650;
-      vijand2Y= 250;
+      vijand2Y = 250;
       cirkelX = 700;
-      cirkelY= 100;
+      cirkelY = 100;
       punten = 0;
-}
+    }
   }
- 
+
   if (spelStatus === SPELEN) {
     tekenAlles();
     beweegAlles();
