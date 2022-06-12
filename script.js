@@ -186,7 +186,7 @@ var tekenAlles = function () {
   image(img3, vijand2X - 50, vijand2Y - 400, 75, 75);
   image(img3, VijandX - 70, VijandY - 350, 75, 75);
   image(img3, VijandX + 90, VijandY - 480, 75, 75);
-  image(img3, vijand2X - 120, vijand2Y - 830, 150, 150);
+  image(img3, vijand2X - 120, vijand2Y - 820, 150, 150);
   // kogel
   // speler
   fill("white");
@@ -224,6 +224,7 @@ function preload() {
   img2 = loadImage('GO.jpg');
   img3 = loadImage('purepng.com-shrekshrekcomputer-animatedfantasy-filmfairy-talebook-1701528653667zkisp.png');
 }
+
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
@@ -245,7 +246,7 @@ var uitleg = function () {
   textSize(25);
   text("Druk op ENTER om te starten", 900, 700);
   textSize(30);
-  text("Ontwijk de witte blokjes m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40, 400);
+  text("Ontwijk de vijand m.b.v. de toetsen 'A','S','D' en 'W' en verzamel munten voor punten :)", 40, 400);
   text("Bereik de blauwe lijn om het level te halen", 350, 500);
 }
 var gameover = function () {
@@ -260,7 +261,7 @@ var gameover = function () {
 
 }
 var winnaar = function () {
-  background("blue");
+  background('blue');
   textSize(40);
   fill("yellow");
   text("Gefeliciteerd. Je hebt het gehaald.", 350, 400);
