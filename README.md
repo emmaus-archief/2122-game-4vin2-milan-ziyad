@@ -6,8 +6,7 @@ Gemaakt door:
 - Ziyad Bakas
 
 ### Beschrijving
-*korte beschrijving van het spel, wat je kunt doen in het spel, wat het doel is*
-
+Het is een ontwijkspel, je kunt alle kanten op bewegen en je doel is het bereiken van de blauwe lijn aan de bovenkant.
 ## Mijn planning
 Werk de planning af van boven naar beneden<br>
 Geef aan met [x] welke onderdelen af zijn
@@ -31,8 +30,8 @@ Basis: uitleg, spelen, afgaan en punten
 
 ### Uitbreidingen 1
 Uitbreiding: *bedenk iets, bijvoorbeeld meer tegenstanders*
-- [ ] *later uitwerken*
-- [ ] *later uitwerken*
+- [x] barrieres maken
+- [x] scherm als je level hebt gehaald
 - [ ] *later uitwerken*
 
 ### Uitbreidingen 2
@@ -43,7 +42,7 @@ Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
 
 ### Ideeen voor uitbreidingen
 Kies de uitbreidingen die je leuk vindt en maak je game nog mooier
-- [ ] Gebruik plaatjes voor de vijanden
+- [x] Gebruik plaatjes voor de vijanden
 - [ ] Animeer speler
 - [ ] Laat badges vallen die extra's aan speler geven
 - [ ] Maak spel steeds moeilijker door toenemend aantal vijanden met tekenVijand

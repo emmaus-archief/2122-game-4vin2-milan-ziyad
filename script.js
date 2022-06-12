@@ -38,10 +38,10 @@ var cirkel2Y = 200;
 var beweegAlles = function () {
   // speler
   if (keyIsDown(65)) {
-    spelerX = spelerX - 2;
+    spelerX = spelerX - 1.5;
   }
   if (keyIsDown(68)) {
-    spelerX = spelerX + 2;
+    spelerX = spelerX + 1.5;
   }
   if (keyIsDown(87)) {
     spelerY = spelerY - 2;
@@ -97,6 +97,24 @@ spelerY - (vijand2Y - 400)< 50&&
 spelerY - (vijand2Y - 400)> -20){
   spelStatus = GAMEOVER;
 }
+if (spelerX -(VijandX - 70)< 100&&
+   spelerX - (VijandX - 70)>-25&&
+   spelerY - (VijandY - 350)< 50&&
+   spelerY - (VijandY - 350)> -20){
+     spelStatus = GAMEOVER;
+   }
+if (spelerX - (VijandX + 90)< 95&&
+    spelerX - (VijandX + 90)> -25&&
+    spelerY - (VijandY -480)< 50&&
+    spelerY - (VijandY - 480)>-20){
+      spelStatus = GAMEOVER;
+    }
+if (spelerX - (vijand2X-120)<160&&
+spelerX - (vijand2X -120)> -5&&
+spelerY - (vijand2Y - 830)< 125&&
+spelerY - (vijand2Y - 830)>-20){
+  spelStatus = GAMEOVER;
+}
   // botsing speler tegen rand
   if (spelerX < 440 || spelerX > 730) {
     spelStatus = GAMEOVER;
@@ -124,10 +142,10 @@ spelerY - (vijand2Y - 400)> -20){
     spelerY - cirkel2Y > -40) {
     punten = punten + 25;
   }
-  if (spelerX - (cirkelX -200)<50&&
-    spelerX - (cirkelX-200) > -40&&
-    spelerY - (cirkelY-300)< 65 &&
-    spelerY - (cirkelY-300) > -40){
+  if (spelerX - (cirkelX -140)<50&&
+    spelerX - (cirkelX-140) > -40&&
+    spelerY - (cirkelY-280)< 65 &&
+    spelerY - (cirkelY-280) > -40){
       punten = punten + 25;
     }
     if (spelerX - (cirkel2X +250)< 50 &&
@@ -136,6 +154,12 @@ spelerY - (vijand2Y - 400)> -20){
     spelerY - (cirkel2Y - 600)> -40){
       punten = punten + 25;
     }
+    if (spelerX - (cirkelX -220)<50 &&
+        spelerX - (cirkelX - 220)> -40&&
+        spelerY - (cirkelY - 600)< 65&&
+        spelerY - (cirkelY - 600)> -40){
+          punten = punten + 25;
+        }
   text(punten, 600, 700);
 };
 
@@ -159,6 +183,9 @@ var tekenAlles = function () {
   image(img3, vijand2X, vijand2Y, 75, 75);
   image(img3, VijandX - 100, VijandY - 200, 75,75);
   image(img3, vijand2X- 50, vijand2Y - 400,75,75);
+  image(img3, VijandX - 70, VijandY - 350, 75,75);
+  image(img3, VijandX+ 90, VijandY - 480, 75, 75);
+  image(img3, vijand2X - 120, vijand2Y - 830, 150,150);
   // kogel
   // speler
   fill("white");
@@ -173,8 +200,8 @@ var tekenAlles = function () {
     ellipse(X, Y, 40, 40);
   }
   coin(cirkelX, cirkelY);
-  coin(cirkelX - 200, cirkelY - 300);
-
+  coin(cirkelX - 140, cirkelY - 280);
+  coin(cirkelX -220, cirkelY - 600);
   coin(cirkel2X, cirkel2Y);
   coin(cirkel2X + 250, cirkel2Y - 600);
 
